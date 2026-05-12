@@ -1,0 +1,68 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name ="test_project"
+version = "0.1.0"
+dependencies = [
+    "httpx",
+    "gidgethub[httpx]>4.0.0",
+    "django>2.1; os_name != 'nt'",
+    "fastapi"
+]
+author = [
+    {name = "Rosculet Cosmin", email ="rosculet.cosmin@yahoo.com"}
+]
+description = "Lovely Spam! Wonderful Spam!"
+readme = "README.md"
+requires-python = ">=3.12"
+keywords = ["egg", "bacon", "FC26"]
+clasifiers = [
+    "dEVELOPMENT sTAUTS : -aLPHA",
+    "programming language :: Python",
+]
+
+# [project.optional]
+# gui = ["PyQt5"]
+# cli =[
+#     "rich",
+#     "click",
+# ]
+
+# [project.urls]
+# Homepage = "https://example.com"
+# Documentation = "https://readthedocs.org"
+# Repository = "https://github.com/me/spam.git"
+# "Bug Tracker" = "https://github.com/me/spam/issues"
+# Changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
+
+# [project.scripts]
+# spam-cli = "spam:main_cli"
+
+# [project.gui-scripts]
+# spam-gui = "spam:main_gui"
+
+# [project.entry-points."spam.magical"]
+# tomatoes = "spam:main_tomatoes"
+[tool.hatch.build.targets.wheel]
+packages = ["src/test_project"]
+
+[dependency-groups]
+dev = [
+    "mypy>=2.1.0",
+    "pytest>=9.0.3",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.15.12",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
